@@ -33,7 +33,7 @@ for i = 1:500
    ptCloud = pcfromkinect(depthDevice,depthImage,colorImage);
     
    view(player,ptCloud);
-    time_ply=sprintf('cloud_%s.ply', datestr(now,'mm-dd-yyyy HH-MM-SS'));
+    time_ply=sprintf('cloud_%s.ply', datestr(now,'dd-mm_HH-MM-SS'));
 
     Variablein = input('type 1\n( or 0 to quit)','s');
     Variablein = str2num(Variablein);
