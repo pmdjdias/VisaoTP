@@ -104,7 +104,7 @@ draw_registration_result(source, target, reg_p2p.transformation)
 
 
 
-
+#commit para o git
 
 
 
