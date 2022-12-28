@@ -1,9 +1,29 @@
+
 # examples/python/Advanced/interactive_visualization.py
 
 import numpy as np
 import copy
 import open3d as o3d
 import sys
+import datetime
+
+
+
+def clean_point_cloud(point_cloud):
+    
+    #import point cloud in sys.argv[1] and clean the point cloud
+    pcd = o3d.io.read_point_cloud(point_cloud)
+    print("point cloud before cleaning")
+    o3d.visualization.draw_geometries([pcd])
+    pcd = pcd.voxel_down_sample(voxel_size=0.012)
+    pcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=25))
+    pcd.orient_normals_towards_camera_location(camera_location=np.array([0, 0, 0]))
+    print("point cloud after cleaning")
+    o3d.visualization.draw_geometries([pcd])
+
+    return pcd
+
+
 
 def demo_crop_geometry():
     print("------------------------------------")
@@ -25,8 +45,8 @@ def demo_crop_geometry():
 def draw_registration_result(source, target, transformation):
     source_temp = copy.deepcopy(source)
     target_temp = copy.deepcopy(target)
-    source_temp.paint_uniform_color([1, 0.706, 0])
-    target_temp.paint_uniform_color([0, 0.651, 0.929])
+    # source_temp.paint_uniform_color([1, 0.706, 0])
+    # target_temp.paint_uniform_color([0, 0.651, 0.929])
     source_temp.transform(transformation)
     o3d.visualization.draw_geometries([source_temp, target_temp])
 
@@ -50,6 +70,7 @@ def demo_manual_registration():
     source = o3d.io.read_point_cloud(sys.argv[1])
     target = o3d.io.read_point_cloud(sys.argv[2])
     print ("\n")
+    
     print("Visualization of two point clouds before manual alignment")
     draw_registration_result(source, target, np.identity(4))
 
@@ -83,10 +104,18 @@ def demo_manual_registration():
     save = input()
     if save == 'y':
         print("saving transformation to file")
-        # transform only the target using reg_p2p
+        # transforming the target using the reg_p2p transformation
         source_transf= source.transform(reg_p2p.transformation)
         newpointcloud=target+source_transf
-        o3d.io.write_point_cloud("newpointcloud.ply", newpointcloud)
+
+        #   writing the point cloud name as the current date and time
+        now = datetime.datetime.now()
+        now = now.strftime("%H-%M_%S")
+        filename="finished_cloud_point-"+now+".ply"
+
+        #use clean_point_cloud to clean the point cloud
+        newpointcloud =clean_point_cloud(newpointcloud)
+        o3d.io.write_point_cloud(filename, newpointcloud)
         o3d.visualization.draw_geometries([newpointcloud])
     else:
         print("not saving transformation to file")
