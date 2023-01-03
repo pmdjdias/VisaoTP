@@ -8,7 +8,7 @@ devido ao tamanho das point clouds, encontram se numa google drive
 [link com as  point clouds](https://drive.google.com/drive/folders/1LW3ZHW-DPgnBjsn0B4yUrr8LDyV7isXS?usp=share_link)
 
 Econtra se em baixo um link com o exemplo do video 
-[video no youtube](www.youtube.com)
+[video no youtube](https://youtu.be/SX-HTDXhwbg)
 para obter point clouds é necessário estas duas toolboxes do [matlab](https://www.mathworks.com/):  
      
 [matlab image acquisition toolbox](https://www.mathworks.com/products/image-acquisition.html) 
