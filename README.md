@@ -13,5 +13,5 @@ para obter point clouds é necessário:
 [ Image Acquisition Toolbox Support Package for Kinect For Windows Sensor](https://www.mathworks.com/matlabcentral/fileexchange/40445-image-acquisition-toolbox-support-package-for-kinect-for-windows-sensor)
 
 
-[link para point clouds](https://drive.google.com/drive/folders/1LW3ZHW-DPgnBjsn0B4yUrr8LDyV7isXS?usp=share_link)
+[link com as  point clouds](https://drive.google.com/drive/folders/1LW3ZHW-DPgnBjsn0B4yUrr8LDyV7isXS?usp=share_link)
 
