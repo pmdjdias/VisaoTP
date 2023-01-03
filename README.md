@@ -9,7 +9,7 @@ José Santos 98279
 
 João Clemente 98212
 
-The objective of the work is to use a cloud mesh from a blk sensor and use the kinect one to acquire 
+The objective of the work is to use a cloud mesh from a blk sensor and use the kinectV2 to acquire 
 hidden parts after the first acquisition with the blk
 
 Due to the size of the point clouds, they are on a Google Drive link with the point clouds
@@ -40,7 +40,7 @@ João Clemente 98212
 
 
 
-O objetivo do trabalho é utilizar uma mesh cloud de um sensor blk e utilizar a kinect one para 
+O objetivo do trabalho é utilizar uma mesh cloud de um sensor blk e utilizar a kinectV2 para 
 fazer aquisição de partes de zonas escondidas após a primeira obtenção com a blk.
 
 devido ao tamanho das point clouds, encontram se numa google drive 
